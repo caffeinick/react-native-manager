@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import { Card, CardSection, Input, Button } from './common';
+import { emailChanged } from '../actions';
 
 class LoginForm extends Component {
   onEmailChange(text) {
-    
+    this.props.emailChanged(text);
   }
 
   render() {
@@ -34,4 +37,8 @@ class LoginForm extends Component {
   }
 }
 
-export default LoginForm;
+LoginForm.propTypes = {
+  emailChanged : PropTypes.func
+}
+
+export default connect(null, emailChanged)(LoginForm);
