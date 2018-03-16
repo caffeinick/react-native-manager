@@ -5,14 +5,14 @@ import {
   PASSWORD_CHANGED
 } from './types';
 
-export const emailChanged = (text) => {
+export const emailChanged = text => {
   return {
     type: EMAIL_CHANGED,
     payload: text
   };
 };
 
-export const passwordChanged = (text) => {
+export const passwordChanged = text => {
   return {
     type: PASSWORD_CHANGED,
     payload: text
@@ -20,8 +20,10 @@ export const passwordChanged = (text) => {
 };
 
 export const loginUser = ({ email, password }) => {
-  return (dispatch) => {
+  return dispatch => {
     firebase.auth().signInWithEmailAndPassword(email, password)
-      .then(user => console.log(user));
+      .then(user => {
+        dispatch({ type: 'LOGIN_USER_SUCCESS', payload: user });
+      });
   };
 };
