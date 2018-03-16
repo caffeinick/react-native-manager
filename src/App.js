@@ -6,7 +6,7 @@ import firebase from 'firebase';
 
 import config from './bin/config';
 import reducers from './reducers';
-import LoginForm from './components/LoginForm';
+import MainNavigator from './navigators/MainNavigator';
 
 class App extends Component {
   componentWillMount() {
@@ -20,7 +20,7 @@ class App extends Component {
 
     return (
       <Provider store={store}>
-        <LoginForm />
+        <MainNavigator />
       </Provider>
     );
   }
