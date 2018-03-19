@@ -84,11 +84,13 @@ class LoginForm extends Component {
 }
 
 LoginForm.propTypes = {
+  navigate: PropTypes.object,
   emailChanged : PropTypes.func,
   passwordChanged: PropTypes.func,
   loginUser: PropTypes.func,
   email: PropTypes.string,
   password: PropTypes.string,
+  user: PropTypes.object,
   error: PropTypes.string,
   loading: PropTypes.bool,
 }
