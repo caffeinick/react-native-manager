@@ -7,6 +7,11 @@ import { Card, CardSection, Input, Button, Spinner } from './common';
 import { emailChanged, passwordChanged, loginUser } from '../actions';
 
 class LoginForm extends Component {
+  componentDidUpdate() {
+    if(this.props.user)
+      this.props.navigate('Employee');
+  }
+
   onEmailChange(text) {
     this.props.emailChanged(text);
   }
@@ -97,9 +102,9 @@ const styles = {
 }
 
 const mapStateToProps = state => {
-  const { email, password, error, loading } = state.auth;
+  const { email, password, error, loading, user } = state.auth;
   return {
-    email, password, error, loading
+    email, password, error, loading, user
   };
 };
 

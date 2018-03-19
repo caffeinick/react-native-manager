@@ -8,7 +8,7 @@ class LoginScreen extends Component {
   render() {
     return (
       <SafeAreaView style={{ flex: 1 }}>
-        <LoginForm />
+        <LoginForm navigate={this.props.navigation.navigate}/>
       </SafeAreaView>
     );
   }

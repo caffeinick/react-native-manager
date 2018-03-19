@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { SafeAreaView, StatusBar } from 'react-native';
+import { SafeAreaView } from 'react-native';
 import { withNavigation } from 'react-navigation';
 
 import EmployeeList from '../components/EmployeeList';
