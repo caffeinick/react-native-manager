@@ -5,15 +5,15 @@ import { withNavigation } from 'react-navigation';
 import EmployeeList from '../components/EmployeeList';
 
 class EmployeeScreen extends Component {
-  static navigationOptions = {
+  static navigationOptions = ({ navigation }) => ({
     headerRight: (
       <Button
-        onPress={() => { console.log(`right!!!`) }}
-        title='info'
+        onPress={() => navigation.navigate('Create')}
+        title='Add'
         color='#fff'
       />
     )
-  };
+  });
 
   render() {
     return (

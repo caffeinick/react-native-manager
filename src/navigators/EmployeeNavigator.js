@@ -1,11 +1,15 @@
 import { StackNavigator } from 'react-navigation';
 
 import EmployeeScreen from '../screens/EmployeeScreen';
+import EmployeeCreateScreen from '../screens/EmployeeCreateScreen';
 
 const routeConfig = {
   Home: {
     screen: EmployeeScreen,
   },
+  Create: {
+    screen: EmployeeCreateScreen,
+  }
 };
 
 const navigationConfig = {
