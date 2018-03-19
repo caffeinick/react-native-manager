@@ -3,11 +3,16 @@ import { View } from 'react-native';
 import PropTypes from 'prop-types';
 
 const CardSection = props => {
-  return <View style={styles.containerStyle}>{props.children}</View>;
+  return (
+    <View style={[styles.containerStyle, props.style]}>
+      {props.children}
+    </View>
+  );
 };
 
 CardSection.propTypes = {
-  children: PropTypes.oneOfType([PropTypes.array, PropTypes.object])
+  children: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
+  style: PropTypes.object
 };
 
 const styles = {

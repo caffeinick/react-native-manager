@@ -93,7 +93,7 @@ LoginForm.propTypes = {
   user: PropTypes.object,
   error: PropTypes.string,
   loading: PropTypes.bool,
-}
+};
 
 const styles = {
   errorTextStyle: {
@@ -101,7 +101,7 @@ const styles = {
     alignSelf: 'center',
     color: 'red'
   }
-}
+};
 
 const mapStateToProps = state => {
   const { email, password, error, loading, user } = state.auth;

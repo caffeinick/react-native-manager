@@ -14,7 +14,7 @@ const routeConfig = {
 
 const navigationConfig = {
   initialRouteName: 'Employee',
-}
+};
 
 const MainNavigator = SwitchNavigator(routeConfig, navigationConfig);
 

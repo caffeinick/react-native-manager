@@ -8,16 +8,16 @@ import config from './bin/config';
 import reducers from './reducers';
 import MainNavigator from './navigators/MainNavigator';
 
+const store = createStore(
+  reducers, {}, applyMiddleware(ReduxThunk)
+)
+
 class App extends Component {
   componentWillMount() {
     firebase.initializeApp(config);
   }
   
   render() {
-    const store = createStore(
-      reducers, {}, applyMiddleware(ReduxThunk)
-    );
-
     return (
       <Provider store={store}>
         <MainNavigator />

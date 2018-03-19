@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Picker } from 'react-native';
+import { Picker, Text } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
@@ -9,7 +9,7 @@ import { employeeUpdate } from '../actions';
 class EmployeeCreate extends Component {
   static navigationOptions = {
     headerTitle: `Add Employee`
-  }
+  };
   
   render() {
     return (
@@ -32,11 +32,11 @@ class EmployeeCreate extends Component {
           />
         </CardSection>
 
-        <CardSection>
+        <CardSection style={{ flexDirection: 'column' }}>
+          <Text style={styles.pickerTextStyle}>Shift</Text>
           <Picker
             selectedValue={this.props.shift}
             onValueChange={value => this.props.employeeUpdate({ prop: 'shift', value })}
-            style={{ flex: 1 }}
           >
             <Picker.Item label="Monday" value="Monday" />
             <Picker.Item label="Tuesday" value="Tuesday" />
@@ -62,6 +62,15 @@ EmployeeCreate.propTypes = {
   name: PropTypes.string,
   phone: PropTypes.string,
   employeeUpdate: PropTypes.func,
+  shift: PropTypes.string,
+};
+
+const styles = {
+  pickerTextStyle: {
+    fontSize: 18,
+    paddingLeft: 20,
+    paddingTop: 7,
+  }
 }
 
 const mapStateToProps = (state) => {
