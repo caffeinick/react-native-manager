@@ -12,7 +12,7 @@ const Spinner = ({ size }) => {
 
 Spinner.propTypes = {
   size: PropTypes.string
-}
+};
 
 const styles = {
   spinnerStyle: {

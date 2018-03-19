@@ -71,7 +71,7 @@ const styles = {
     paddingLeft: 20,
     paddingTop: 7,
   }
-}
+};
 
 const mapStateToProps = (state) => {
   const { name, phone, shift } = state.employeeForm;
