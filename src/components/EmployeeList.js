@@ -5,18 +5,22 @@ import _ from 'lodash';
 import PropTypes from 'prop-types';
 
 import { employeesFetch } from '../actions';
+import { Card } from '../components/common';
 import ListItem from './ListItem';
 
 class EmployeeList extends Component {
-  componentWillMount() {
+  componentDidMount() {
     this.props.employeesFetch();
   }
 
   renderItemFunc = ({ item }) => {
     return (
-      <ListItem
-        item={item}
-      />
+      <Card>
+        <ListItem
+          item={item}
+          navigation={this.props.navigation}
+        />
+      </Card>
     );
   }
 
@@ -36,7 +40,8 @@ class EmployeeList extends Component {
 
 EmployeeList.propTypes = {
   employeesFetch: PropTypes.func,
-  employees: PropTypes.oneOfType([PropTypes.object, PropTypes.array])
+  employees: PropTypes.arrayOf(PropTypes.object),
+  navigation: PropTypes.object,
 };
 
 const mapStateToProps = state => {

@@ -18,6 +18,8 @@ class EmployeeCreate extends Component {
   }
   
   render() {
+    console.log(this.props.navigation.state.params);
+    
     return (
       <Card>
         <CardSection>

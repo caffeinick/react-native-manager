@@ -13,7 +13,7 @@ const store = createStore(
 )
 
 class App extends Component {
-  componentWillMount() {
+  componentDidMount() {
     firebase.initializeApp(config);
   }
   
