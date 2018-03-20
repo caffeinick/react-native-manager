@@ -8,7 +8,7 @@ import { employeeUpdate } from '../actions';
 
 class EmployeeCreate extends Component {
   static navigationOptions = {
-    headerTitle: `Add Employee`
+    headerTitle: 'Add Employee'
   };
   
   render() {

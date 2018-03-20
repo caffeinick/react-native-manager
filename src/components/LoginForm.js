@@ -9,7 +9,7 @@ import { emailChanged, passwordChanged, loginUser } from '../actions';
 class LoginForm extends Component {
   componentDidUpdate() {
     if(this.props.user)
-      this.props.navigate('Employee');
+      this.props.navigation.navigate('Employee');
   }
 
   onEmailChange(text) {
@@ -58,7 +58,7 @@ class LoginForm extends Component {
         <CardSection>
           <Input
             label="Email"
-            placeholder="email@gmail"
+            placeholder="email@gmail.com"
             onChangeText={this.onEmailChange.bind(this)}
             value={this.props.email}
           />
@@ -84,7 +84,7 @@ class LoginForm extends Component {
 }
 
 LoginForm.propTypes = {
-  navigate: PropTypes.object,
+  navigation: PropTypes.object,
   emailChanged : PropTypes.func,
   passwordChanged: PropTypes.func,
   loginUser: PropTypes.func,
