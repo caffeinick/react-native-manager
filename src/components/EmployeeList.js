@@ -1,47 +1,42 @@
 import React, { Component } from 'react';
-import { FlatList, View, Text } from 'react-native';
+import { FlatList } from 'react-native';
 import { connect } from 'react-redux';
 import _ from 'lodash';
 import PropTypes from 'prop-types';
 
 import { employeesFetch } from '../actions';
+import ListItem from './ListItem';
 
 class EmployeeList extends Component {
   componentWillMount() {
     this.props.employeesFetch();
-
-    this.createDataSource(this.props);
   }
 
-  componentWillReceiveProps(nextProps) {
-    // nextProps are the next set of props that this component
-    // will be rendered with
-    // this.props is still the old set of props
-
-    this.createDataSource(nextProps);
-  }
-
-  createDataSource({ employee }) {
-    
+  renderItemFunc = ({ item }) => {
+    return (
+      <ListItem
+        item={item}
+      />
+    );
   }
 
   render() {
-    console.log(this.props);
+    const employees = this.props.employees;
+    
     return (
-      <View>
-        <Text>Employee List</Text>
-        <Text>Employee List</Text>
-        <Text>Employee List</Text>
-        <Text>Employee List</Text>
-        <Text>Employee List</Text>
-        <Text>Employee List</Text>
-      </View>
+      <FlatList
+        data={employees}
+        extraData={this.props}
+        renderItem={this.renderItemFunc}
+        keyExtractor={item => `${item.uid}`}
+      />
     );
   }
 }
 
 EmployeeList.propTypes = {
   employeesFetch: PropTypes.func,
+  employees: PropTypes.oneOfType([PropTypes.object, PropTypes.array])
 };
 
 const mapStateToProps = state => {
