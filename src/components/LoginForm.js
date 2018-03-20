@@ -7,6 +7,11 @@ import { Card, CardSection, Input, Button, Spinner } from './common';
 import { emailChanged, passwordChanged, loginUser } from '../actions';
 
 class LoginForm extends Component {
+  componentDidUpdate() {
+    if(this.props.user)
+      this.props.navigation.navigate('Employee');
+  }
+
   onEmailChange(text) {
     this.props.emailChanged(text);
   }
@@ -53,7 +58,7 @@ class LoginForm extends Component {
         <CardSection>
           <Input
             label="Email"
-            placeholder="email@gmail"
+            placeholder="email@gmail.com"
             onChangeText={this.onEmailChange.bind(this)}
             value={this.props.email}
           />
@@ -79,14 +84,16 @@ class LoginForm extends Component {
 }
 
 LoginForm.propTypes = {
+  navigation: PropTypes.object,
   emailChanged : PropTypes.func,
   passwordChanged: PropTypes.func,
   loginUser: PropTypes.func,
   email: PropTypes.string,
   password: PropTypes.string,
+  user: PropTypes.object,
   error: PropTypes.string,
   loading: PropTypes.bool,
-}
+};
 
 const styles = {
   errorTextStyle: {
@@ -94,12 +101,12 @@ const styles = {
     alignSelf: 'center',
     color: 'red'
   }
-}
+};
 
 const mapStateToProps = state => {
-  const { email, password, error, loading } = state.auth;
+  const { email, password, error, loading, user } = state.auth;
   return {
-    email, password, error, loading
+    email, password, error, loading, user
   };
 };
 

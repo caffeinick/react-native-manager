@@ -6,7 +6,11 @@ import firebase from 'firebase';
 
 import config from './bin/config';
 import reducers from './reducers';
-import LoginForm from './components/LoginForm';
+import MainNavigator from './navigators/MainNavigator';
+
+const store = createStore(
+  reducers, {}, applyMiddleware(ReduxThunk)
+)
 
 class App extends Component {
   componentWillMount() {
@@ -14,13 +18,9 @@ class App extends Component {
   }
   
   render() {
-    const store = createStore(
-      reducers, {}, applyMiddleware(ReduxThunk)
-    );
-
     return (
       <Provider store={store}>
-        <LoginForm />
+        <MainNavigator />
       </Provider>
     );
   }
