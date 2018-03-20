@@ -12,9 +12,9 @@ class EmployeeCreate extends Component {
   };
 
   onButtonPress() {
-    const { name, phone, shift } = this.props;
+    const { name, phone, shift, navigation } = this.props;
 
-    this.props.employeeCreate({ name, phone, shift: shift || 'Monday' });
+    this.props.employeeCreate({ name, phone, shift: shift || 'Monday', navigation });
   }
   
   render() {
@@ -70,6 +70,7 @@ EmployeeCreate.propTypes = {
   employeeUpdate: PropTypes.func,
   employeeCreate: PropTypes.func,
   shift: PropTypes.string,
+  navigation: PropTypes.object,
 };
 
 const styles = {
