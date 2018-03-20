@@ -14,7 +14,7 @@ class EmployeeCreate extends Component {
   onButtonPress() {
     const { name, phone, shift } = this.props;
 
-    this.props.employeeCreate({ name, phone, shift });
+    this.props.employeeCreate({ name, phone, shift: shift || 'Monday' });
   }
   
   render() {
@@ -68,6 +68,7 @@ EmployeeCreate.propTypes = {
   name: PropTypes.string,
   phone: PropTypes.string,
   employeeUpdate: PropTypes.func,
+  employeeCreate: PropTypes.func,
   shift: PropTypes.string,
 };
 
