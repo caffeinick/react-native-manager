@@ -38,6 +38,10 @@ class EmployeeDetailScreen extends Component {
     Communications.text(phone, `Your upcoming shift is on ${shift}`);
   }
 
+  onFirePress() {
+    this.props.navigation.navigate('DelModal');
+  }
+
   render() {
     return (
       <SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}>
@@ -53,6 +57,12 @@ class EmployeeDetailScreen extends Component {
           <CardSection>
             <Button onPress={this.onTextPress.bind(this)}>
               Text Schedule
+            </Button>
+          </CardSection>
+
+          <CardSection>
+            <Button onPress={this.onFirePress.bind(this)}>
+              Fire Employee
             </Button>
           </CardSection>
         </Card>

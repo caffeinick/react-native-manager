@@ -4,9 +4,9 @@ import { Confirm } from '../components/common';
 
 class EmployeeDeleteScreen extends Component {
   render() {
-    return(
-      <Confirm>
-        
+    return (
+      <Confirm {...this.props}>
+        Are you sure you want to fire?
       </Confirm>
     );
   }
