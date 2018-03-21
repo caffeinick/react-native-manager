@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 
 import { Card, CardSection, Button } from '../components/common';
 import EmployeeForm from '../components/EmployeeForm';
-import { employeeUpdate } from '../actions';
+import { employeeUpdate, employeeSave } from '../actions';
 
 class EmployeeEditScreen extends Component {
   static navigationOptions = {
@@ -21,7 +21,13 @@ class EmployeeEditScreen extends Component {
 
   onButtonPress() {
     const { name, phone, shift } = this.props;
-    console.log(name, phone, shift);
+    
+    this.props.employeeSave({
+      name,
+      phone,
+      shift,
+      uid: this.props.navigation.state.params.employee.uid 
+    });
   }
 
   render() {
@@ -55,4 +61,6 @@ const mapStateToProps = state => {
   return { name, phone, shift };
 };
 
-export default connect(mapStateToProps, { employeeUpdate })(EmployeeEditScreen);
+export default connect(mapStateToProps, {
+  employeeUpdate, employeeSave
+})(EmployeeEditScreen);
