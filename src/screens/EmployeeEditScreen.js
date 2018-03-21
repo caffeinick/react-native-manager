@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { SafeAreaView } from 'react-native';
 import { connect } from 'react-redux';
 import _ from 'lodash';
+import Communications from 'react-native-communications';
 import PropTypes from 'prop-types';
 
 import { Card, CardSection, Button } from '../components/common';
@@ -31,6 +32,12 @@ class EmployeeEditScreen extends Component {
     });
   }
 
+  onTextPress() {
+    const { phone, shift } = this.props;
+
+    Communications.text(phone, `Your upcoming shift is on ${shift}`);
+  }
+
   render() {
     return (
       <SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}>
@@ -40,6 +47,12 @@ class EmployeeEditScreen extends Component {
           <CardSection>
             <Button onPress={this.onButtonPress.bind(this)}>
               Save Changes
+            </Button>
+          </CardSection>
+
+          <CardSection>
+            <Button onPress={this.onTextPress.bind(this)}>
+              Text Schedule
             </Button>
           </CardSection>
         </Card>
@@ -55,7 +68,7 @@ EmployeeEditScreen.propTypes = {
   navigation: PropTypes.object,
   employeeUpdate: PropTypes.func,
   employeeSave: PropTypes.func,
-}
+};
 
 const mapStateToProps = state => {
   const { name, phone, shift } = state.employeeForm;

@@ -5,6 +5,7 @@ import {
   EMPLOYEE_CREATED,
   EMPLOYEE_FETCH_SUCCESS,
   EMPLOYEE_SAVE_SUCCESS,
+  EMPLOYEE_RESET,
 } from './types';
 
 export const employeeUpdate = ({ prop, value }) => {
@@ -51,4 +52,8 @@ export const employeeSave = ({ name, phone, shift, uid, navigation }) => {
         navigation.pop();
       });
   };
+};
+
+export const employeeReset = () => {
+  return dispatch => dispatch({ type: EMPLOYEE_RESET });
 };

@@ -5,12 +5,16 @@ import PropTypes from 'prop-types';
 
 import { Card, CardSection, Button } from '../components/common';
 import EmployeeForm from '../components/EmployeeForm';
-import { employeeCreate } from '../actions';
+import { employeeCreate, employeeReset } from '../actions';
 
 class EmployeeCreateScreen extends Component {
   static navigationOptions = {
     headerTitle: 'Add Employee'
   };
+  
+  componentDidMount() {
+    this.props.employeeReset();
+  }
 
   onButtonPress() {
     const { name, phone, shift, navigation } = this.props;
@@ -19,6 +23,7 @@ class EmployeeCreateScreen extends Component {
   }
   
   render() {
+    console.log(this.props);
     return (
       <SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}>
         <Card>
@@ -49,4 +54,6 @@ const mapStateToProps = state => {
   return { name, phone, shift };
 };
 
-export default connect(mapStateToProps, { employeeCreate })(EmployeeCreateScreen);
+export default connect(mapStateToProps, {
+  employeeCreate, employeeReset
+})(EmployeeCreateScreen);
