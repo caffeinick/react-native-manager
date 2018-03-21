@@ -20,13 +20,14 @@ class EmployeeEditScreen extends Component {
   }
 
   onButtonPress() {
-    const { name, phone, shift } = this.props;
+    const { name, phone, shift, navigation } = this.props;
     
     this.props.employeeSave({
       name,
       phone,
       shift,
-      uid: this.props.navigation.state.params.employee.uid 
+      uid: this.props.navigation.state.params.employee.uid,
+      navigation
     });
   }
 
@@ -53,6 +54,7 @@ EmployeeEditScreen.propTypes = {
   shift: PropTypes.string,
   navigation: PropTypes.object,
   employeeUpdate: PropTypes.func,
+  employeeSave: PropTypes.func,
 }
 
 const mapStateToProps = state => {
