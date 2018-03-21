@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 
 import { Card, CardSection, Button } from '../components/common';
 import EmployeeForm from '../components/EmployeeForm';
-import { employeeUpdate, employeeSave } from '../actions';
+import { employeeUpdate, employeeSave, employeeDelete } from '../actions';
 
 class EmployeeDetailScreen extends Component {
   static navigationOptions = {
@@ -39,7 +39,9 @@ class EmployeeDetailScreen extends Component {
   }
 
   onFirePress() {
-    this.props.navigation.navigate('DelModal');
+    this.props.navigation.navigate('DelModal', {
+      uid: this.props.navigation.state.params.employee.uid
+    });
   }
 
   render() {
@@ -78,6 +80,7 @@ EmployeeDetailScreen.propTypes = {
   navigation: PropTypes.object,
   employeeUpdate: PropTypes.func,
   employeeSave: PropTypes.func,
+  employeeDelete: PropTypes.func,
 };
 
 const mapStateToProps = state => {
@@ -87,5 +90,5 @@ const mapStateToProps = state => {
 };
 
 export default connect(mapStateToProps, {
-  employeeUpdate, employeeSave
+  employeeUpdate, employeeSave, employeeDelete
 })(EmployeeDetailScreen);

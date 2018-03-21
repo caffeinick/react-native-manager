@@ -32,10 +32,8 @@ Confirm.propTypes = {
 
 const styles = {
   containerStyle: {
-    borderWidth: 1,
-    borderColor: 'red',
-    backgroundColor: 'rgba(0,0,0,0)',
     flex: 1,
+    backgroundColor: 'white',
     justifyContent: 'center',
   },
   cardSectionStyle: {
@@ -43,9 +41,9 @@ const styles = {
   },
   textStyle: {
     flex: 1,
-    fontSize: 18,
+    fontSize: 20,
     textAlign: 'center',
-    lineHeight: 40,
+    lineHeight: 80,
   },
 };
 

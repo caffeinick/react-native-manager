@@ -34,6 +34,7 @@ ListItem.propTypes = {
 const styles = {
   titleStyle: {
     fontSize: 18,
+    lineHeight: 50,
     paddingLeft: 15,
   }
 };

@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import { Confirm } from '../components/common';
+import { employeeDelete } from '../actions';
 
 class EmployeeDeleteScreen extends Component {
   onAccept() {
-    
+    const { uid } = this.props.navigation.state.params;
+
+    this.props.employeeDelete({ uid });
+    this.props.navigation.navigate('Home');
   }
 
   onDecline() {
@@ -26,6 +31,7 @@ class EmployeeDeleteScreen extends Component {
 
 EmployeeDeleteScreen.propTypes = {
   navigation: PropTypes.object,
+  employeeDelete: PropTypes.func,
 };
 
-export default EmployeeDeleteScreen;
+export default connect(null, { employeeDelete })(EmployeeDeleteScreen);

@@ -15,12 +15,10 @@ class EmployeeList extends Component {
 
   renderItemFunc = ({ item }) => {
     return (
-      <Card>
         <ListItem
           item={item}
           navigation={this.props.navigation}
         />
-      </Card>
     );
   }
 
