@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import { Card, CardSection, Button } from '../components/common';
-import { employeeCreate } from '../actions';
 import EmployeeForm from '../components/EmployeeForm';
+import { employeeCreate } from '../actions';
 
 class EmployeeCreateScreen extends Component {
   static navigationOptions = {
