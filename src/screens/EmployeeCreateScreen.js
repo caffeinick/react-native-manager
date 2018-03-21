@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { SafeAreaView } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
@@ -18,18 +19,18 @@ class EmployeeCreateScreen extends Component {
   }
   
   render() {
-    console.log(this.props.navigation.state.params);
-    
     return (
-      <Card>
-        <EmployeeForm {...this.props} />
+      <SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}>
+        <Card>
+          <EmployeeForm />
 
-        <CardSection>
-          <Button onPress={this.onButtonPress.bind(this)}>
-            Create
-          </Button>
-        </CardSection>
-      </Card>
+          <CardSection>
+            <Button onPress={this.onButtonPress.bind(this)}>
+              Create
+            </Button>
+          </CardSection>
+        </Card>
+      </SafeAreaView>
     );
   }
 }
@@ -37,9 +38,9 @@ class EmployeeCreateScreen extends Component {
 EmployeeCreateScreen.propTypes = {
   name: PropTypes.string,
   phone: PropTypes.string,
-  employeeCreate: PropTypes.func,
   shift: PropTypes.string,
   navigation: PropTypes.object,
+  employeeCreate: PropTypes.func,
 };
 
 const mapStateToProps = state => {
