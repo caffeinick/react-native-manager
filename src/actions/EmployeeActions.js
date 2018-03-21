@@ -57,3 +57,15 @@ export const employeeSave = ({ name, phone, shift, uid, navigation }) => {
 export const employeeReset = () => {
   return dispatch => dispatch({ type: EMPLOYEE_RESET });
 };
+
+export const employeeDelete = ({ uid }) => {
+  const { currentUser } = firebase.auth();
+
+  return dispatch => {
+    firebase.database().ref(`/users/${currentUser.uid}/employees/${uid}`)
+      .remove()
+      .then(() => {
+        dispatch({ type: EMPLOYEE_RESET });
+      });
+  };
+};

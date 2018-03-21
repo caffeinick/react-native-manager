@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { CardSection } from './CardSection';
 import { Button } from './Button';
 
-const Confirm = ({ children, navigation }) => {
+const Confirm = ({ children, onAccept, onDecline }) => {
   const { containerStyle, cardSectionStyle, textStyle } = styles;
 
   return (
@@ -17,15 +17,17 @@ const Confirm = ({ children, navigation }) => {
       </CardSection>
 
       <CardSection style={cardSectionStyle}>
-        <Button>Yes</Button>
-        <Button>No</Button>
+        <Button onPress={onAccept}>Yes</Button>
+        <Button onPress={onDecline}>No</Button>
       </CardSection>
     </View>
   );
 };
 
 Confirm.propTypes = {
-  children: PropTypes.string
+  children: PropTypes.string,
+  onAccept: PropTypes.func,
+  onDecline: PropTypes.func,
 };
 
 const styles = {
@@ -45,6 +47,6 @@ const styles = {
     textAlign: 'center',
     lineHeight: 40,
   },
-}
+};
 
 export { Confirm };
