@@ -9,9 +9,9 @@ import { Card, CardSection, Button } from '../components/common';
 import EmployeeForm from '../components/EmployeeForm';
 import { employeeUpdate, employeeSave } from '../actions';
 
-class EmployeeEditScreen extends Component {
+class EmployeeDetailScreen extends Component {
   static navigationOptions = {
-    headerTitle: 'Edit Employee'
+    headerTitle: 'Employee Details'
   };
 
   componentDidMount() {
@@ -61,7 +61,7 @@ class EmployeeEditScreen extends Component {
   }
 }
 
-EmployeeEditScreen.propTypes = {
+EmployeeDetailScreen.propTypes = {
   name: PropTypes.string,
   phone: PropTypes.string,
   shift: PropTypes.string,
@@ -78,4 +78,4 @@ const mapStateToProps = state => {
 
 export default connect(mapStateToProps, {
   employeeUpdate, employeeSave
-})(EmployeeEditScreen);
+})(EmployeeDetailScreen);

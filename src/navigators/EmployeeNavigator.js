@@ -2,7 +2,7 @@ import { StackNavigator } from 'react-navigation';
 
 import EmployeeScreen from '../screens/EmployeeScreen';
 import EmployeeCreateScreen from '../screens/EmployeeCreateScreen';
-import EmployeeEditScreen from '../screens/EmployeeEditScreen';
+import EmployeeDetailNavigator from './EmployeeDetailNavigator';
 
 const routeConfig = {
   Home: {
@@ -11,8 +11,8 @@ const routeConfig = {
   Create: {
     screen: EmployeeCreateScreen,
   },
-  Edit: {
-    screen: EmployeeEditScreen,
+  Detail: {
+    screen: EmployeeDetailNavigator,
   },
 };
 

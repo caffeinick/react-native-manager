@@ -23,7 +23,6 @@ class EmployeeCreateScreen extends Component {
   }
   
   render() {
-    console.log(this.props);
     return (
       <SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}>
         <Card>
@@ -45,6 +44,7 @@ EmployeeCreateScreen.propTypes = {
   phone: PropTypes.string,
   shift: PropTypes.string,
   navigation: PropTypes.object,
+  employeeReset: PropTypes.func,
   employeeCreate: PropTypes.func,
 };
 
