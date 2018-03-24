@@ -9,7 +9,7 @@ import { emailChanged, passwordChanged, loginUser } from '../actions';
 class LoginForm extends Component {
   componentDidUpdate() {
     if(this.props.user)
-      this.props.navigation.navigate('Employee');
+      this.props.navigation.navigate('Main');
   }
 
   onEmailChange(text) {

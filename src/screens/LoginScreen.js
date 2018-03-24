@@ -8,7 +8,7 @@ import LoginForm from '../components/LoginForm';
 class LoginScreen extends Component {
   render() {
     return (
-      <SafeAreaView style={{ flex: 1 }}>
+      <SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}>
         <LoginForm navigation={this.props.navigation}/>
       </SafeAreaView>
     );

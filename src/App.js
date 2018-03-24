@@ -6,21 +6,21 @@ import firebase from 'firebase';
 
 import config from './bin/config';
 import reducers from './reducers';
-import MainNavigator from './navigators/MainNavigator';
+import RootNavigator from './navigators/RootNavigator';
 
 const store = createStore(
   reducers, {}, applyMiddleware(ReduxThunk)
-)
+);
 
 class App extends Component {
-  componentWillMount() {
+  componentDidMount() {
     firebase.initializeApp(config);
   }
   
   render() {
     return (
       <Provider store={store}>
-        <MainNavigator />
+        <RootNavigator />
       </Provider>
     );
   }

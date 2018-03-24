@@ -1,21 +1,22 @@
-import { SwitchNavigator } from 'react-navigation';
+import { StackNavigator } from 'react-navigation';
 
-import LoginStack from './LoginNavigator';
 import EmployeeStack from './EmployeeNavigator';
+import EmployeeDeleteScreen from '../screens/EmployeeDeleteScreen';
 
 const routeConfig = {
-  Login: {
-    screen: LoginStack
+  Home: {
+    screen: EmployeeStack,
   },
-  Employee: {
-    screen: EmployeeStack
-  }
-};
+  DelModal: {
+    screen: EmployeeDeleteScreen,
+  },
+}
 
 const navigationConfig = {
-  initialRouteName: 'Login',
-};
+  mode: 'modal',
+  headerMode: 'none',
+}
 
-const MainNavigator = SwitchNavigator(routeConfig, navigationConfig);
+const MainNavigator = StackNavigator(routeConfig, navigationConfig);
 
 export default MainNavigator;
